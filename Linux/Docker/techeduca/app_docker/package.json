@@ -1,0 +1,22 @@
+{
+  "name": "aprendendo_docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrunoGsouza90/curso_de_docker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrunoGsouza90/curso_de_docker/issues"
+  },
+  "homepage": "https://github.com/BrunoGsouza90/curso_de_docker#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

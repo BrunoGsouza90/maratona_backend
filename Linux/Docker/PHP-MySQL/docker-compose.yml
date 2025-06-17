@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    networks:
+      - minha-conexao
+
+  php-apache:
+    build:
+      context: .
+      dockerfile: php.dockerfile
+    container_name: php
+    ports:
+      - "81:80"
+    volumes:
+      - /home/bruno/dev/apache:/var/www/html
+    depends_on:
+      - mysql
+    networks:
+      - minha-conexao
+    environment:
+      - MYSQL_HOST=mysql
+
+networks:
+  minha-conexao:
+    external: true
