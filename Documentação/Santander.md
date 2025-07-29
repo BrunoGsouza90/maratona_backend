@@ -59,6 +59,8 @@ Siga os passos abaixo para instalar e configurar os módulos de geração de bol
 
 ![Configurações do Addon](imagens_readme_santander/Configurações%20do%20Addon.png)
 
+**Observação:** O certificado deve ser válido e ter a extensão ***"PFX"***. Ele está salvo em ***html/Certificados/Certificado.pfx***, após enviado nas configurações.
+
 7. Ao abrir uma fatura, basta selecionar o **Método de Pagamento** para **Boleto Santander**. Caso a opção Boleto Automático esteja marcada como **Sim** no perfil do cliente, o boleto será gerado automaticamente.
 
 ![Fatura](imagens_readme_santander/Fatura.png)
@@ -67,11 +69,11 @@ Siga os passos abaixo para instalar e configurar os módulos de geração de bol
 
 ```bash
 
-    0 6 * * * root curl -s /caminho/completo/para/o/seu/whmcs/modules/gateways/santander/libs/atualizar.php
+    0 6 * * * root curl -s dominio_do_seu_whmcs/modules/gateways/santander/libs/atualizarBoletos.php
 
 ``` 
 
-**Importante**: Substitua ***/caminho/completo/para/o/seu/whmcs/*** pelo caminho real da sua instalação do WHMCS no servidor. Este cron job é crucial para o processamento automático de retornos bancários e atualizações diário do status dos boletos.
+**Importante**: Substitua ***dominio_do_seu_whmcs/*** pelo domínio da sua instalação do WHMCS no servidor. Este cron job é crucial para o processamento automático de retornos bancários e atualizações diário do status dos boletos.
 
 ## ℹ️ Informações sobre a aplicação.
 
