@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: myconfigmap
+
+  labels:
+
+    app: myconfigmap
+
+spec:
+
+  replicas: 1
+
+  selector:
+
+    matchLabels:
+
+      app: myconfigmap
+
+  template:
+
+    metadata:
+  
+      labels:      
+  
+        app: myconfigmap
+
+    spec:
+
+      containers:
+
+        - name: myapp
+
+          image: nginx
+
+          volumeMounts:
+
+            - name: myvolume
+
+              mountPath: /usr/share/nginx/html
+
+              readOnly: true
+
+      volumes:
+
+        - name: myvolume
+
+          configMap:
+
+            name: myindex
+
+            items:
+
+              - key: nginx-page.html
+          
+                path: index.html

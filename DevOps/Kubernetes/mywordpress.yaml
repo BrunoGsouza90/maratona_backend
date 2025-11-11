@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: mywordpress
+
+  labels:
+
+    app: mywordpress
+
+spec:
+
+  replicas: 1
+
+  selector:
+
+    matchLabels:
+
+      app: mywordpress
+
+  template:
+
+    metadata:
+  
+      labels:      
+  
+        app: mywordpress
+
+    spec:
+
+      nodeSelector:
+        
+        kubernetes.io/hostname: mycluster-worker
+
+      containers:
+
+        - name: mywordpress
+
+          image: mysql
+            
